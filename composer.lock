@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "bba1a4e4911c39605a0ae2223f1bc0b8",
+    "content-hash": "996d8e8de6a6a4c4bfed12d139699475",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -2218,12 +2218,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dionsnoeijen/sexy-field.git",
-                "reference": "a5514910a680b03d88f3477654328b66ca2e8a56"
+                "reference": "925c477db6a87cd767f8d254726a5be9dd2c131a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dionsnoeijen/sexy-field/zipball/a5514910a680b03d88f3477654328b66ca2e8a56",
-                "reference": "a5514910a680b03d88f3477654328b66ca2e8a56",
+                "url": "https://api.github.com/repos/dionsnoeijen/sexy-field/zipball/925c477db6a87cd767f8d254726a5be9dd2c131a",
+                "reference": "925c477db6a87cd767f8d254726a5be9dd2c131a",
                 "shasum": ""
             },
             "require": {
@@ -2236,7 +2236,10 @@
                 "symfony/inflector": "^3.3.2",
                 "symfony/security": "^3.3.2",
                 "symfony/validator": "^3.3.2",
-                "symfony/yaml": "^3.3.2"
+                "symfony/yaml": "^3.3.2",
+                "tardigrades/sexy-field-entity": "dev-master",
+                "twig/extensions": "^1.5.1",
+                "twig/twig": "~2.0"
             },
             "require-dev": {
                 "mikey179/vfsstream": "^1.6",
@@ -2261,7 +2264,53 @@
                 }
             ],
             "description": "SexyField helps you build application structure and accompanying forms.",
-            "time": "2017-09-30 10:03:46"
+            "time": "2017-10-02 09:29:46"
+        },
+        {
+            "name": "tardigrades/sexy-field-entity",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dionsnoeijen/sexy-field-entity.git",
+                "reference": "a3668b1628da077e16b5c5ca748c317f4bfa5a44"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dionsnoeijen/sexy-field-entity/zipball/a3668b1628da077e16b5c5ca748c317f4bfa5a44",
+                "reference": "a3668b1628da077e16b5c5ca748c317f4bfa5a44",
+                "shasum": ""
+            },
+            "require": {
+                "beberlei/assert": "2.6.5",
+                "symfony/config": "^3.3.2",
+                "symfony/dependency-injection": "^3.3.2",
+                "symfony/yaml": "^3.3.2",
+                "tardigrades/sexy-field": "dev-master"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "^1.6",
+                "mockery/mockery": "^0.9.9",
+                "phpunit/phpunit": "^6.1",
+                "squizlabs/php_codesniffer": "^2.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tardigrades\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Dion Snoeijen",
+                    "email": "hallo@dionsnoeijen.nl"
+                }
+            ],
+            "description": "Section field entity generator",
+            "time": "2017-09-30 09:54:56"
         },
         {
             "name": "twig/extensions",
@@ -4018,7 +4067,7 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
         "tardigrades/sexy-field": 20
     },
