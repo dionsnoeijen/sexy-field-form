@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "996d8e8de6a6a4c4bfed12d139699475",
+    "content-hash": "d876e938b801c8ce54609b8180263ea8",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -2370,16 +2370,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v2.4.4",
+            "version": "2.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "eddb97148ad779f27e670e1e3f19fb323aedafeb"
+                "reference": "d8d888e2ae694c8057d6b0201b7b8f6f07d430cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/eddb97148ad779f27e670e1e3f19fb323aedafeb",
-                "reference": "eddb97148ad779f27e670e1e3f19fb323aedafeb",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/d8d888e2ae694c8057d6b0201b7b8f6f07d430cc",
+                "reference": "d8d888e2ae694c8057d6b0201b7b8f6f07d430cc",
                 "shasum": ""
             },
             "require": {
@@ -2432,7 +2432,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-09-27T18:10:31+00:00"
+            "time": "2017-09-27 18:11:00"
         }
     ],
     "packages-dev": [
