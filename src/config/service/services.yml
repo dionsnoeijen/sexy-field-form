@@ -1,0 +1,16 @@
+services:
+
+  section_field.form:
+    class: Tardigrades\SectionField\Form\Form
+    arguments:
+      - '@section_field.manager.doctrine.section_manager'
+      - '@section_field.read.section'
+
+  section_field.twig.section_form:
+      class: Tardigrades\Twig\SectionFormTwigExtension
+      arguments:
+        - '@section_field.manager.doctrine.section_manager'
+        - '@section_field.create.section'
+        - '@section_field.form'
+        - '@request_stack'
+      tags: [twig.extension]
