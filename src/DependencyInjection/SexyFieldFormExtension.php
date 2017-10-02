@@ -28,7 +28,7 @@ class SexyFieldFormExtension extends Extension
                 __DIR__.'/../config/service'
             ])
         );
-        
+
         $loader->load('services.yml');
     }
 }
