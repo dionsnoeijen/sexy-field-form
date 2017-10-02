@@ -18,7 +18,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
-class SectionFieldExtension extends Extension
+class SexyFieldFormExtension extends Extension
 {
     public function load(array $configs, ContainerBuilder $container)
     {
@@ -28,8 +28,7 @@ class SectionFieldExtension extends Extension
                 __DIR__.'/../config/service'
             ])
         );
-
-        $loader->load('commands.yml');
+        
         $loader->load('services.yml');
     }
 }
