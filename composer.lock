@@ -4,63 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d876e938b801c8ce54609b8180263ea8",
+    "content-hash": "5c52d9f2473b7a186e6ffcb44305825f",
     "packages": [
-        {
-            "name": "beberlei/assert",
-            "version": "2.6.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/beberlei/assert.git",
-                "reference": "fbadde44717ea3eb98fba35425d49731185bf418"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/beberlei/assert/zipball/fbadde44717ea3eb98fba35425d49731185bf418",
-                "reference": "fbadde44717ea3eb98fba35425d49731185bf418",
-                "shasum": ""
-            },
-            "require": {
-                "ext-mbstring": "*",
-                "php": ">=5.3"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "2.0.0-alpha",
-                "phpunit/phpunit": "@stable"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Assert": "lib/"
-                },
-                "files": [
-                    "lib/Assert/functions.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-2-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Benjamin Eberlei",
-                    "email": "kontakt@beberlei.de",
-                    "role": "Lead Developer"
-                },
-                {
-                    "name": "Richard Quadling",
-                    "email": "rquadling@gmail.com",
-                    "role": "Collaborator"
-                }
-            ],
-            "description": "Thin assertion library for input validation in business models.",
-            "keywords": [
-                "assert",
-                "assertion",
-                "validation"
-            ],
-            "time": "2016-10-11T17:13:28+00:00"
-        },
         {
             "name": "doctrine/annotations",
             "version": "v1.5.0",
@@ -2213,106 +2158,6 @@
             "time": "2017-07-29T21:54:42+00:00"
         },
         {
-            "name": "tardigrades/sexy-field",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dionsnoeijen/sexy-field.git",
-                "reference": "925c477db6a87cd767f8d254726a5be9dd2c131a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dionsnoeijen/sexy-field/zipball/925c477db6a87cd767f8d254726a5be9dd2c131a",
-                "reference": "925c477db6a87cd767f8d254726a5be9dd2c131a",
-                "shasum": ""
-            },
-            "require": {
-                "beberlei/assert": "2.6.5",
-                "doctrine/orm": "^2.5.6",
-                "symfony/config": "^3.3.2",
-                "symfony/console": "^3.3.2",
-                "symfony/dependency-injection": "^3.3.2",
-                "symfony/form": "^3.3.2",
-                "symfony/inflector": "^3.3.2",
-                "symfony/security": "^3.3.2",
-                "symfony/validator": "^3.3.2",
-                "symfony/yaml": "^3.3.2",
-                "tardigrades/sexy-field-entity": "dev-master",
-                "twig/extensions": "^1.5.1",
-                "twig/twig": "~2.0"
-            },
-            "require-dev": {
-                "mikey179/vfsstream": "^1.6",
-                "mockery/mockery": "^0.9.9",
-                "phpunit/phpunit": "^6.1",
-                "squizlabs/php_codesniffer": "^2.8"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Tardigrades\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Dion Snoeijen",
-                    "email": "hallo@dionsnoeijen.nl"
-                }
-            ],
-            "description": "SexyField helps you build application structure and accompanying forms.",
-            "time": "2017-10-02 09:29:46"
-        },
-        {
-            "name": "tardigrades/sexy-field-entity",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dionsnoeijen/sexy-field-entity.git",
-                "reference": "a3668b1628da077e16b5c5ca748c317f4bfa5a44"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dionsnoeijen/sexy-field-entity/zipball/a3668b1628da077e16b5c5ca748c317f4bfa5a44",
-                "reference": "a3668b1628da077e16b5c5ca748c317f4bfa5a44",
-                "shasum": ""
-            },
-            "require": {
-                "beberlei/assert": "2.6.5",
-                "symfony/config": "^3.3.2",
-                "symfony/dependency-injection": "^3.3.2",
-                "symfony/yaml": "^3.3.2",
-                "tardigrades/sexy-field": "dev-master"
-            },
-            "require-dev": {
-                "mikey179/vfsstream": "^1.6",
-                "mockery/mockery": "^0.9.9",
-                "phpunit/phpunit": "^6.1",
-                "squizlabs/php_codesniffer": "^2.8"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Tardigrades\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "proprietary"
-            ],
-            "authors": [
-                {
-                    "name": "Dion Snoeijen",
-                    "email": "hallo@dionsnoeijen.nl"
-                }
-            ],
-            "description": "Section field entity generator",
-            "time": "2017-09-30 09:54:56"
-        },
-        {
             "name": "twig/extensions",
             "version": "v1.5.1",
             "source": {
@@ -2370,16 +2215,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "2.x-dev",
+            "version": "v2.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "d8d888e2ae694c8057d6b0201b7b8f6f07d430cc"
+                "reference": "eddb97148ad779f27e670e1e3f19fb323aedafeb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/d8d888e2ae694c8057d6b0201b7b8f6f07d430cc",
-                "reference": "d8d888e2ae694c8057d6b0201b7b8f6f07d430cc",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/eddb97148ad779f27e670e1e3f19fb323aedafeb",
+                "reference": "eddb97148ad779f27e670e1e3f19fb323aedafeb",
                 "shasum": ""
             },
             "require": {
@@ -2432,10 +2277,65 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-09-27 18:11:00"
+            "time": "2017-09-27T18:10:31+00:00"
         }
     ],
     "packages-dev": [
+        {
+            "name": "beberlei/assert",
+            "version": "2.6.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/beberlei/assert.git",
+                "reference": "fbadde44717ea3eb98fba35425d49731185bf418"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/beberlei/assert/zipball/fbadde44717ea3eb98fba35425d49731185bf418",
+                "reference": "fbadde44717ea3eb98fba35425d49731185bf418",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "2.0.0-alpha",
+                "phpunit/phpunit": "@stable"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Assert": "lib/"
+                },
+                "files": [
+                    "lib/Assert/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Richard Quadling",
+                    "email": "rquadling@gmail.com",
+                    "role": "Collaborator"
+                }
+            ],
+            "description": "Thin assertion library for input validation in business models.",
+            "keywords": [
+                "assert",
+                "assertion",
+                "validation"
+            ],
+            "time": "2016-10-11T17:13:28+00:00"
+        },
         {
             "name": "hamcrest/hamcrest-php",
             "version": "v1.2.2",
@@ -3976,6 +3876,60 @@
             "time": "2017-05-22T02:43:20+00:00"
         },
         {
+            "name": "tardigrades/sexy-field",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dionsnoeijen/sexy-field.git",
+                "reference": "82ad59d396de7c7767e1fca618adac9d490d8bc9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dionsnoeijen/sexy-field/zipball/82ad59d396de7c7767e1fca618adac9d490d8bc9",
+                "reference": "82ad59d396de7c7767e1fca618adac9d490d8bc9",
+                "shasum": ""
+            },
+            "require": {
+                "beberlei/assert": "2.6.5",
+                "doctrine/orm": "^2.5.6",
+                "php": "^7.1",
+                "symfony/config": "^3.3.2",
+                "symfony/console": "^3.3.2",
+                "symfony/dependency-injection": "^3.3.2",
+                "symfony/form": "^3.3.2",
+                "symfony/inflector": "^3.3.2",
+                "symfony/security": "^3.3.2",
+                "symfony/validator": "^3.3.2",
+                "symfony/yaml": "^3.3.2",
+                "twig/extensions": "^1.5.1",
+                "twig/twig": "^2.0"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "^1.6",
+                "mockery/mockery": "^0.9.9",
+                "phpunit/phpunit": "^6.1",
+                "squizlabs/php_codesniffer": "^2.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tardigrades\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dion Snoeijen",
+                    "email": "hallo@dionsnoeijen.nl"
+                }
+            ],
+            "description": "SexyField helps you build application structure and accompanying forms.",
+            "time": "2017-10-03T11:59:57+00:00"
+        },
+        {
             "name": "theseer/tokenizer",
             "version": "1.1.0",
             "source": {
@@ -4071,8 +4025,10 @@
     "stability-flags": {
         "tardigrades/sexy-field": 20
     },
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": "^7.1"
+    },
     "platform-dev": []
 }
