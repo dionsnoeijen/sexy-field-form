@@ -71,6 +71,7 @@ class SectionFormTwigExtension extends Twig_Extension
 
         $form = $this->form->buildFormForSection(
             $forHandle,
+            $this->requestStack,
             $sectionFormOptions
         );
         $form->handleRequest();
