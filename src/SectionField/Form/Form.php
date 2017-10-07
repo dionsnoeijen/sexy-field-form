@@ -19,6 +19,7 @@ use Symfony\Component\Form\Extension\Csrf\CsrfExtension;
 use Symfony\Component\Form\Extension\Validator\ValidatorExtension;
 use Symfony\Component\Form\FormFactory;
 use Symfony\Component\Form\FormInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Security\Csrf\CsrfTokenManager;
 use Symfony\Component\Security\Csrf\TokenGenerator\UriSafeTokenGenerator;
@@ -68,12 +69,14 @@ class Form implements SectionFormInterface
      * is meanth to update or create new data.
      *
      * @param string $forHandle
+     * @param RequestStack $requestStack
      * @param SectionFormOptions|null $sectionFormOptions
      * @param bool $csrfProtection
      * @return FormInterface
      */
     public function buildFormForSection(
         string $forHandle,
+        RequestStack $requestStack,
         SectionFormOptions $sectionFormOptions = null,
         bool $csrfProtection = true
     ): FormInterface {
@@ -111,7 +114,7 @@ class Form implements SectionFormInterface
             $id
         );
 
-        $factory = $this->getFormFactory();
+        $factory = $this->getFormFactory($requestStack);
 
         $form = $factory
             ->createBuilder(
@@ -202,7 +205,7 @@ class Form implements SectionFormInterface
      * If you use it stand-alone this will build a form factory right here.
      * @return FormFactory
      */
-    private function getFormFactory(): FormFactory
+    private function getFormFactory(RequestStack $requestStack): FormFactory
     {
         $factory = $this->formFactory;
         if (empty($this->formFactory)) {
@@ -210,7 +213,9 @@ class Form implements SectionFormInterface
             // Loads validator metadata from entity static method
             $validatorBuilder->addMethodMapping('loadValidatorMetadata');
             $validator = $validatorBuilder->getValidator();
-            $session = new Session();
+            if (!$session = $requestStack->getCurrentRequest()->getSession()) {
+                $session = new Session();
+            }
             $csrfGenerator = new UriSafeTokenGenerator();
             $csrfStorage = new SessionTokenStorage($session);
             $csrfManager = new CsrfTokenManager($csrfGenerator, $csrfStorage);
