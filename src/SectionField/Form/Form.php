@@ -95,7 +95,6 @@ class Form implements SectionFormInterface
             }
         }
 
-
         // If we hava an id, it means we are updating something.
         // Prep so we can get the correct $sectionEntity
         $id = null;
