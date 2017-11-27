@@ -27,7 +27,6 @@ class SexyFieldFormExtensionTest extends TestCase
 
         $loader = new SexyFieldFormExtension();
         $loader->load([], $container);
-
-        $this->assertEquals($loader, SexyFieldFormExtension::class);
+        $this->assertInstanceOf(SexyFieldFormExtension::class, $loader);
     }
 }
