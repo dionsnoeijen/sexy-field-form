@@ -96,13 +96,4 @@ class SectionFormTwigExtension extends Twig_Extension
 
         return $form->createView();
     }
-
-    /**
-     * A form can have javascript powered fields,
-     * fetch them to bring them to your template
-     */
-    public function formJavascript()
-    {
-
-    }
 }
