@@ -54,10 +54,6 @@ class SectionFormTwigExtension extends Twig_Extension
             new Twig_Function(
                 'sectionForm',
                 array($this, 'sectionForm')
-            ),
-            new Twig_Function(
-                'formJavascript',
-                array($this, 'formJavascript')
             )
         );
     }
