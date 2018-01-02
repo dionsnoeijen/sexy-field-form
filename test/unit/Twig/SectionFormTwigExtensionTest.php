@@ -8,6 +8,7 @@ use PHPUnit\Framework\TestCase;
 use Symfony\Component\Form\Form;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\Request;
+use Tardigrades\SectionField\Generator\CommonSectionInterface;
 use Tardigrades\SectionField\Service\CreateSectionInterface;
 use Tardigrades\SectionField\Service\SectionManagerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -77,7 +78,7 @@ class SectionFormTwigExtensionTest extends TestCase
             'redirect' => '/myPlace/'
         ];
 
-        $dummyData = '';
+        $dummyData = Mockery::mock(CommonSectionInterface::class);
 
         $mockedForm = Mockery::mock(Form::class)->makePartial();
         $mockedCurrentRequest = Mockery::mock(Request::class)->makePartial();
