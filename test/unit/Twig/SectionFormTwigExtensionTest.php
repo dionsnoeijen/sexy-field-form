@@ -60,7 +60,6 @@ class SectionFormTwigExtensionTest extends TestCase
         $result = $this->twigExtension->getFunctions();
         $this->assertInternalType('array', $result);
         $this->assertInstanceOf(\Twig_Function::class, $result[0]);
-        $this->assertInstanceOf(\Twig_Function::class, $result[1]);
     }
 
     /**
