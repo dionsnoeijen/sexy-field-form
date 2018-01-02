@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/dionsnoeijen/sexy-field-form/badge.svg?branch=master)](https://coveralls.io/github/dionsnoeijen/sexy-field-form?branch=master)
+
 [![Build Status](https://travis-ci.org/dionsnoeijen/sexy-field-form.svg?branch=master)](https://travis-ci.org/dionsnoeijen/sexy-field-form)
 
 # SectionField Form
