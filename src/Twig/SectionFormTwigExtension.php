@@ -62,6 +62,14 @@ class SectionFormTwigExtension extends Twig_Extension
         );
     }
 
+    /**
+     * This method returns a form to be rendered with Twig.
+     * It will return a view, validate and save the form data.
+     *
+     * @param string $forHandle
+     * @param array $sectionFormOptions
+     * @return FormView
+     */
     public function sectionForm(
         string $forHandle,
         array $sectionFormOptions = []
