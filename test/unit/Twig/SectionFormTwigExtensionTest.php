@@ -20,6 +20,8 @@ use Tardigrades\SectionField\Form\FormInterface;
  */
 class SectionFormTwigExtensionTest extends TestCase
 {
+    use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
+
     /** @var SectionManagerInterface|Mockery\Mock */
     private $sectionManager;
 
@@ -122,8 +124,6 @@ class SectionFormTwigExtensionTest extends TestCase
             'redirect' => '/myPlace/'
         ];
 
-        $dummyData = 'trololo';
-
         $mockedForm = Mockery::mock(Form::class)->makePartial();
 
         $this->form->shouldReceive('buildFormForSection')
@@ -132,12 +132,11 @@ class SectionFormTwigExtensionTest extends TestCase
 
         $this->form->shouldReceive('hasRelationship')->never();
 
-        $this->createSection->shouldReceive('save')->once()
-            ->with($dummyData, ['nope']);
+        $this->createSection->shouldReceive('save')->never();
 
         $mockedForm->shouldReceive('handleRequest')->once();
-        $mockedForm->shouldReceive('isSubmitted')->once()->andReturn(false);
-        $mockedForm->shouldReceive('isValid')->once()->andReturn(true);
+        $mockedForm->shouldReceive('isSubmitted')->andReturn(false);
+        $mockedForm->shouldReceive('isValid')->andReturn(true);
         $mockedForm->shouldReceive('getData')->never();
         $mockedFormView = Mockery::mock(FormView::class)->makePartial();
         $mockedForm->shouldReceive('createView')->once()->andReturn($mockedFormView);

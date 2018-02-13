@@ -29,6 +29,8 @@ use Tardigrades\SectionField\ValueObject\Slug;
  */
 class FormTest extends TestCase
 {
+    use M\Adapter\Phpunit\MockeryPHPUnitIntegration;
+
     /** @var SectionManagerInterface|M\Mock */
     private $sectionManager;
 
@@ -154,7 +156,7 @@ class FormTest extends TestCase
             ->andReturn(new ArrayCollection([$field]));
 
         $this->sectionManager->shouldReceive('readByHandle')
-            ->once()
+            ->twice()
             ->andReturn($mockedSectionManagerInterface);
 
         $sexyEntity = M::mock(SectionEntityInterface::class)->makePartial();
