@@ -13,6 +13,8 @@ use Mockery as M;
  */
 class SexyFieldFormExtensionTest extends TestCase
 {
+    use M\Adapter\Phpunit\MockeryPHPUnitIntegration;
+
     /**
      * @test
      * @covers ::load
