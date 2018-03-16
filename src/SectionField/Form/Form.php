@@ -250,7 +250,7 @@ class Form implements SectionFormInterface
         else if (!empty($id)) {
             $sectionEntity = $this->readSection->read(ReadOptions::fromArray([
                 ReadOptions::SECTION => $forHandle,
-                ReadOptions::ID => $id
+                ReadOptions::ID => $id->toInt()
             ]))->current();
         }
 
