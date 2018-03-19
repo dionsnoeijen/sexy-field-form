@@ -93,12 +93,8 @@ class SectionFormTwigExtensionTest extends TestCase
         $mockedCurrentRequest->shouldReceive('get')->once()->with('form')
             ->andReturn(['nothing to see here']);
 
-        $this->form->shouldReceive('hasRelationship')->once()
-            ->with(['nothing to see here'])
-            ->andReturn(['nope']);
-
         $this->createSection->shouldReceive('save')->once()
-            ->with($dummyData, ['nope']);
+            ->with($dummyData);
 
         $mockedForm->shouldReceive('handleRequest')->once();
         $mockedForm->shouldReceive('isSubmitted')->once()->andReturn(true);

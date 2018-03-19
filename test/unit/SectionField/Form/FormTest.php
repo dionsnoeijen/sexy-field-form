@@ -19,7 +19,6 @@ use Tardigrades\SectionField\Service\SectionManagerInterface;
 use Tardigrades\SectionField\ValueObject\FieldConfig;
 use Tardigrades\SectionField\ValueObject\FullyQualifiedClassName;
 use Tardigrades\SectionField\ValueObject\Id;
-use Tardigrades\SectionField\ValueObject\JitRelationship;
 use Tardigrades\SectionField\ValueObject\SectionConfig;
 use Tardigrades\SectionField\ValueObject\Slug;
 
@@ -49,48 +48,6 @@ class FormTest extends TestCase
         $this->formFactory = M::mock(FormFactory::class);
         $this->readSection = M::mock(ReadSectionInterface::class);
         $this->form = new Form($this->sectionManager, $this->readSection, $this->formFactory);
-    }
-
-    /**
-     * @test
-     * @covers ::hasRelationship
-     * @covers ::__construct
-     */
-    public function it_has_relationships_with_string_data()
-    {
-        $formData =
-            [
-                'i have _id' => 'qualityName:88',
-                'i do not have Id' => 'unqualified:1002'
-            ];
-
-        $relationships = $this->form->hasRelationship($formData);
-        $this->assertInstanceOf(JitRelationship::class, $relationships[0]);
-        $this->assertSame($relationships[0]->getId()->toInt(), 88);
-        $this->assertSame((string)$relationships[0]->getFullyQualifiedClassName(), 'qualityName');
-        $this->assertCount(1, $relationships);
-    }
-
-    /**
-     * @test
-     * @covers ::hasRelationship
-     * @covers ::__construct
-     */
-    public function it_has_relationships_with_array_data()
-    {
-        $formData =
-            [
-                'i have _id' => ['qualityName:88', 'veryhighquality:1'],
-                'i do not have Id' => 'unqualified:1002'
-            ];
-
-        $relationships = $this->form->hasRelationship($formData);
-        $this->assertInstanceOf(JitRelationship::class, $relationships[0]);
-        $this->assertSame($relationships[0]->getId()->toInt(), 88);
-        $this->assertSame((string)$relationships[0]->getFullyQualifiedClassName(), 'qualityName');
-        $this->assertSame($relationships[1]->getId()->toInt(), 1);
-        $this->assertSame((string)$relationships[1]->getFullyQualifiedClassName(), 'veryhighquality');
-        $this->assertCount(2, $relationships);
     }
 
     /**

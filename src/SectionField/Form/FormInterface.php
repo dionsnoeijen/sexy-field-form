@@ -25,6 +25,4 @@ interface FormInterface
         SectionFormOptions $sectionFormOptions = null,
         bool $csrfProtection = true
     ): SymfonyFormInterface;
-
-    public function hasRelationship(array $formData): array;
 }

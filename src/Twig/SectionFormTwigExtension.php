@@ -84,10 +84,7 @@ class SectionFormTwigExtension extends Twig_Extension
             $form->isValid()
         ) {
             $data = $form->getData();
-            $request = $this->requestStack->getCurrentRequest();
-
-            $relationships = $this->form->hasRelationship($request->get('form'));
-            $this->createSection->save($data, $relationships);
+            $this->createSection->save($data);
 
             try {
                 $redirect = $sectionFormOptions->getRedirect();

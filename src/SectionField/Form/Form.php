@@ -35,7 +35,6 @@ use Tardigrades\SectionField\Service\ReadSectionInterface;
 use Tardigrades\SectionField\Service\SectionManagerInterface;
 use Tardigrades\SectionField\ValueObject\FullyQualifiedClassName;
 use Tardigrades\SectionField\ValueObject\Id;
-use Tardigrades\SectionField\ValueObject\JitRelationship;
 use Tardigrades\SectionField\Service\ReadOptions;
 use Tardigrades\SectionField\ValueObject\SectionConfig;
 use Tardigrades\SectionField\ValueObject\SectionFormOptions;
@@ -126,8 +125,7 @@ class Form implements SectionFormInterface
                     ],
                     'csrf_protection' => $csrfProtection,
                     'csrf_field_name' => 'token',
-                    'csrf_token_id'   => 'tardigrades',
-                    'allow_extra_fields' => true // This is required for jit relationships.
+                    'csrf_token_id'   => 'tardigrades'
                 ]
             );
 
@@ -151,36 +149,6 @@ class Form implements SectionFormInterface
 
         $form->add('save', SubmitType::class);
         return $form->getForm();
-    }
-
-    public function hasRelationship(array $formData): array
-    {
-        $relationships = [];
-        foreach ($formData as $key=>$data) {
-            if (strpos($key, '_id')) {
-                if (is_string($data)) {
-                    $relationship = explode(':', $data);
-                    $relationship = JitRelationship::fromFullyQualifiedClassNameAndId(
-                        FullyQualifiedClassName::fromString($relationship[0]),
-                        Id::fromInt((int)$relationship[1])
-                    );
-                    $relationships[] = $relationship;
-                }
-
-                if (is_array($data)) {
-                    foreach ($data as $value) {
-                        $relationship = explode(':', $value);
-                        $relationship = JitRelationship::fromFullyQualifiedClassNameAndId(
-                            FullyQualifiedClassName::fromString($relationship[0]),
-                            Id::fromInt((int)$relationship[1])
-                        );
-                        $relationships[] = $relationship;
-                    }
-                }
-            }
-        }
-
-        return $relationships;
     }
 
     /**
