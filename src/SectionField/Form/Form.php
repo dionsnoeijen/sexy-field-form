@@ -125,7 +125,8 @@ class Form implements SectionFormInterface
                     ],
                     'csrf_protection' => $csrfProtection,
                     'csrf_field_name' => 'token',
-                    'csrf_token_id'   => 'tardigrades'
+                    'csrf_token_id'   => 'tardigrades',
+                    'allow_extra_fields' => true // We need to allow extra fields for extra section fields (ignored in the generators)
                 ]
             );
 
