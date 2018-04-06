@@ -31,6 +31,7 @@ use Tardigrades\Entity\SectionInterface;
 use Tardigrades\FieldType\FieldTypeInterface;
 use Tardigrades\Helper\FullyQualifiedClassNameConverter;
 use Tardigrades\SectionField\Form\FormInterface as SectionFormInterface;
+use Tardigrades\SectionField\Generator\CommonSectionInterface;
 use Tardigrades\SectionField\Service\ReadSectionInterface;
 use Tardigrades\SectionField\Service\SectionManagerInterface;
 use Tardigrades\SectionField\ValueObject\FullyQualifiedClassName;
@@ -208,7 +209,8 @@ class Form implements SectionFormInterface
         SectionInterface $section,
         Slug $slug = null,
         Id $id = null
-    ) {
+    ): CommonSectionInterface {
+
         if (!empty($slug)) {
             $sectionEntity = $this->readSection->read(ReadOptions::fromArray([
                 ReadOptions::SECTION => $forHandle,
