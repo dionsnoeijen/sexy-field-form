@@ -14,6 +14,7 @@ use Tardigrades\Entity\Field;
 use Tardigrades\Entity\FieldTypeInterface;
 use Tardigrades\Entity\Section;
 use Tardigrades\Entity\SectionEntityInterface;
+use Tardigrades\SectionField\Generator\CommonSectionInterface;
 use Tardigrades\SectionField\Service\ReadSectionInterface;
 use Tardigrades\SectionField\Service\SectionManagerInterface;
 use Tardigrades\SectionField\ValueObject\FieldConfig;
@@ -116,7 +117,7 @@ class FormTest extends TestCase
             ->twice()
             ->andReturn($mockedSectionManagerInterface);
 
-        $sexyEntity = M::mock(SectionEntityInterface::class)->makePartial();
+        $sexyEntity = M::mock(CommonSectionInterface::class)->makePartial();
 
         $this->readSection->shouldReceive('read')
             ->once()

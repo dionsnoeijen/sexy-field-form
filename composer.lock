@@ -4113,12 +4113,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dionsnoeijen/sexy-field.git",
-                "reference": "28af371497650522187256c2081d4314b6d8bf75"
+                "reference": "649678a06b896783bd3ed37a4af794b5e20d1b77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dionsnoeijen/sexy-field/zipball/28af371497650522187256c2081d4314b6d8bf75",
-                "reference": "28af371497650522187256c2081d4314b6d8bf75",
+                "url": "https://api.github.com/repos/dionsnoeijen/sexy-field/zipball/649678a06b896783bd3ed37a4af794b5e20d1b77",
+                "reference": "649678a06b896783bd3ed37a4af794b5e20d1b77",
                 "shasum": ""
             },
             "require": {
@@ -4162,7 +4162,7 @@
                 }
             ],
             "description": "SexyField helps you build application structure and accompanying forms.",
-            "time": "2018-03-19T13:37:05+00:00"
+            "time": "2018-04-06 07:50:10"
         },
         {
             "name": "tardigrades/sexy-field-field-types-base",
@@ -4170,12 +4170,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dionsnoeijen/sexy-field-field-types-base.git",
-                "reference": "174a0d05a8bb79afeaff9951256485082dc9c259"
+                "reference": "3cf345410609153d264ed69aa0e2a708b915e4b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dionsnoeijen/sexy-field-field-types-base/zipball/174a0d05a8bb79afeaff9951256485082dc9c259",
-                "reference": "174a0d05a8bb79afeaff9951256485082dc9c259",
+                "url": "https://api.github.com/repos/dionsnoeijen/sexy-field-field-types-base/zipball/3cf345410609153d264ed69aa0e2a708b915e4b7",
+                "reference": "3cf345410609153d264ed69aa0e2a708b915e4b7",
                 "shasum": ""
             },
             "require": {
@@ -4208,7 +4208,7 @@
                 }
             ],
             "description": "Section field basic field types",
-            "time": "2018-03-19 10:34:11"
+            "time": "2018-04-06T09:33:12+00:00"
         },
         {
             "name": "theseer/tokenizer",
