@@ -4113,12 +4113,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dionsnoeijen/sexy-field.git",
-                "reference": "649678a06b896783bd3ed37a4af794b5e20d1b77"
+                "reference": "0a29d92e03ef51ac3d3bba2d8054516b965b86f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dionsnoeijen/sexy-field/zipball/649678a06b896783bd3ed37a4af794b5e20d1b77",
-                "reference": "649678a06b896783bd3ed37a4af794b5e20d1b77",
+                "url": "https://api.github.com/repos/dionsnoeijen/sexy-field/zipball/0a29d92e03ef51ac3d3bba2d8054516b965b86f7",
+                "reference": "0a29d92e03ef51ac3d3bba2d8054516b965b86f7",
                 "shasum": ""
             },
             "require": {
@@ -4162,7 +4162,7 @@
                 }
             ],
             "description": "SexyField helps you build application structure and accompanying forms.",
-            "time": "2018-04-06 07:50:10"
+            "time": "2018-04-30T13:24:50+00:00"
         },
         {
             "name": "tardigrades/sexy-field-field-types-base",
@@ -4208,7 +4208,7 @@
                 }
             ],
             "description": "Section field basic field types",
-            "time": "2018-04-06T09:33:12+00:00"
+            "time": "2018-04-06 09:33:12"
         },
         {
             "name": "theseer/tokenizer",

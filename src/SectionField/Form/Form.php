@@ -145,7 +145,8 @@ class Form implements SectionFormInterface
                 $section,
                 $sectionEntity,
                 $this->sectionManager,
-                $this->readSection
+                $this->readSection,
+                $requestStack->getCurrentRequest()
             );
         }
 
