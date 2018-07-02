@@ -52,6 +52,14 @@ class FormTest extends TestCase
     }
 
     /**
+     * @test
+     */
+    public function it_should_have_one_test()
+    {
+        $this->assertTrue(true);
+    }
+
+    /**
      * @covers ::buildFormForSection
      * @covers ::__construct
      * @runInSeparateProcess
