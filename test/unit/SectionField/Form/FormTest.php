@@ -52,7 +52,6 @@ class FormTest extends TestCase
     }
 
     /**
-     * @test
      * @covers ::buildFormForSection
      * @covers ::__construct
      * @runInSeparateProcess
