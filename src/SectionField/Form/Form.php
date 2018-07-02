@@ -164,9 +164,7 @@ class Form implements SectionFormInterface
     private function getSectionConfig(string $forHandle): SectionConfig
     {
         return $this->sectionManager->readByHandle(
-            FullyQualifiedClassNameConverter::toHandle(
-                FullyQualifiedClassName::fromString($forHandle)
-            )
+            FullyQualifiedClassName::fromString($forHandle)->toHandle()
         )->getConfig();
     }
 
@@ -201,7 +199,7 @@ class Form implements SectionFormInterface
         FullyQualifiedClassName $forHandle
     ): SectionInterface {
         return $this->sectionManager->readByHandle(
-            FullyQualifiedClassNameConverter::toHandle($forHandle)
+            $forHandle->toHandle()
         );
     }
 
