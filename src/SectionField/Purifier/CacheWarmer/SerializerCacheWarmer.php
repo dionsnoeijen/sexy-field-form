@@ -28,7 +28,7 @@ class SerializerCacheWarmer implements CacheWarmerInterface
 
     /**
      * @param string[]      $paths
-     * @param \HTMLPurifier $htmlPurifier Used to build cache within bundle runtime
+     * @param HTMLPurifier $htmlPurifier Used to build cache within bundle runtime
      */
     public function __construct(array $paths, \HTMLPurifier $htmlPurifier)
     {

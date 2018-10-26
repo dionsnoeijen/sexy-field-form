@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Exercise\HTMLPurifierBundle\Form\TypeExtension;
+namespace Tardigrades\SectionField\Purifier\TypeExtension;
 
 use Tardigrades\SectionField\Purifier\Listener\HTMLPurifierListener;
 use Tardigrades\SectionField\Purifier\HTMLPurifiersRegistryInterface;

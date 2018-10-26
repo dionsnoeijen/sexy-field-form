@@ -31,6 +31,9 @@ use Tardigrades\Entity\SectionInterface;
 use Tardigrades\FieldType\FieldTypeInterface;
 use Tardigrades\SectionField\Form\FormInterface as SectionFormInterface;
 use Tardigrades\SectionField\Generator\CommonSectionInterface;
+use Tardigrades\SectionField\Purifier\HTMLPurifiersRegistry;
+use Tardigrades\SectionField\Purifier\HTMLPurifiersRegistryInterface;
+use Tardigrades\SectionField\Purifier\TypeExtension\HTMLPurifierTextTypeExtension;
 use Tardigrades\SectionField\Service\ReadSectionInterface;
 use Tardigrades\SectionField\Service\SectionManagerInterface;
 use Tardigrades\SectionField\ValueObject\FullyQualifiedClassName;
@@ -45,19 +48,24 @@ class Form implements SectionFormInterface
     /** @var SectionManagerInterface */
     private $sectionManager;
 
-    /** @var FormFactory */
-    private $formFactory;
-
     /** @var ReadSectionInterface */
     private $readSection;
+
+    /** @var HTMLPurifiersRegistryInterface */
+    private $purifiersRegistry;
+
+    /** @var FormFactory */
+    private $formFactory;
 
     public function __construct(
         SectionManagerInterface $sectionManager,
         ReadSectionInterface $readSection,
+        HTMLPurifiersRegistryInterface $purifiersRegistry,
         FormFactory $formFactory = null
     ) {
         $this->sectionManager = $sectionManager;
         $this->readSection = $readSection;
+        $this->purifiersRegistry = $purifiersRegistry;
         $this->formFactory = $formFactory;
     }
 
@@ -130,6 +138,8 @@ class Form implements SectionFormInterface
                 ]
             );
 
+
+
         /** @var FieldInterface $field */
         foreach ($section->getFields() as $field) {
             $fieldTypeFullyQualifiedClassName = (string) $field
@@ -189,6 +199,7 @@ class Form implements SectionFormInterface
             $factory = Forms::createFormFactoryBuilder()
                 ->addExtension(new CsrfExtension($csrfManager))
                 ->addExtension(new ValidatorExtension($validator))
+                ->addTypeExtension(new HTMLPurifierTextTypeExtension($this->purifiersRegistry))
                 ->getFormFactory();
         }
         return $factory;

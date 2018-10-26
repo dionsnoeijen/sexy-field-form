@@ -57,7 +57,7 @@ class HTMLPurifierListener implements EventSubscriberInterface
     /**
      * @return \HTMLPurifier
      */
-    private function getPurifier(): \HTMLPurifier
+    private function getPurifier(): HTMLPurifier
     {
         return $this->registry->get($this->profile);
     }

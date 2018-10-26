@@ -1,9 +1,19 @@
 services:
+#  Tardigrades\SectionField\Purifier\TypeExtension\HTMLPurifierTextTypeExtension:
+#    arguments:
+#      - '@Tardigrades\SectionField\Purifier\HTMLPurifiersRegistryInterface'
+#    tags:
+#      - { name: form.type_extension, extended_type: Symfony\Component\Form\Extension\Core\Type\TextType }
+
+  Tardigrades\SectionField\Purifier\HTMLPurifiersRegistry:
+    arguments:
+      - '@service_container'
 
   Tardigrades\SectionField\Form\Form:
     arguments:
       - '@section_field.manager.doctrine.section_manager'
       - '@section_field.read.section'
+      - '@Tardigrades\SectionField\Purifier\HTMLPurifiersRegistry'
 
   section_field.form: '@Tardigrades\SectionField\Form\Form'
 
@@ -17,21 +27,17 @@ services:
 
   section_field.twig.section_form: '@Tardigrades\Twig\SectionFormTwigExtension'
 
+  html.purifier:
+    class: 'HTMLPurifier'
+
   Tardigrades\SectionField\Purifier\CacheWarmer\SerializerCacheWarmer:
     public: false
     arguments:
-      - '%tardigrades_html_purifier.cache_warmer.serializer.paths%'
-      - '@HTMLPurifier'
+      - [ '%kernel.cache_dir%/htmlpurifier' ]
+      - '@html.purifier'
     tags: [ kernel.cache_warmer ]
 
   tardigrades_html_purifier.cache_warmer.serializer: '@Tardigrades\SectionField\Purifier\CacheWarmer\SerializerCacheWarmer'
 
-  Tardigrades\SectionField\Purifier\TypeExtension\HTMLPurifierTextTypeExtension:
-    public: false
-    arguments:
-      - '@Tardigrades\SectionField\Purifier\HTMLPurifiersRegistryInterface'
-    tags: { name: form.type_extension, extended_type: Symfony\Component\Form\Extension\Core\Type\TextType }
-
-  tardigrades_html_purifier.form.text_type_extension: '@Tardigrades\SectionField\Purifier\TypeExtension\HTMLPurifierTextTypeExtension'
-
-
+#
+#  tardigrades_html_purifier.form.text_type_extension: '@Tardigrades\SectionField\Purifier\TypeExtension\HTMLPurifierTextTypeExtension'

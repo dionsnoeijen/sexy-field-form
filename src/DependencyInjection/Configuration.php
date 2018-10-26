@@ -14,7 +14,7 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder();
 
-        $rootNode = $treeBuilder->root('exercise_html_purifier');
+        $rootNode = $treeBuilder->root('sexy_field_form');
         $rootNode
             ->useAttributeAsKey('name')
             ->prototype('array')
