@@ -21,7 +21,8 @@
     "symfony/config": "^3.3.2",
     "twig/twig": "^2.0",
     "twig/extensions": "^1.5.1",
-    "php-coveralls/php-coveralls": "^1.0"
+    "php-coveralls/php-coveralls": "^1.0",
+    "ezyang/htmlpurifier": "^4.10"
   },
   "autoload": {
     "psr-4": {

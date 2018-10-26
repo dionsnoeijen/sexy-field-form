@@ -1,16 +1,37 @@
 services:
 
-  section_field.form:
-    class: Tardigrades\SectionField\Form\Form
+  Tardigrades\SectionField\Form\Form:
     arguments:
       - '@section_field.manager.doctrine.section_manager'
       - '@section_field.read.section'
 
-  section_field.twig.section_form:
-      class: Tardigrades\Twig\SectionFormTwigExtension
+  section_field.form: '@Tardigrades\SectionField\Form\Form'
+
+  Tardigrades\Twig\SectionFormTwigExtension:
       arguments:
         - '@section_field.manager.doctrine.section_manager'
         - '@section_field.create.section'
         - '@section_field.form'
         - '@request_stack'
-      tags: [twig.extension]
+      tags: [ twig.extension ]
+
+  section_field.twig.section_form: '@Tardigrades\Twig\SectionFormTwigExtension'
+
+  Tardigrades\SectionField\Purifier\CacheWarmer\SerializerCacheWarmer:
+    public: false
+    arguments:
+      - '%tardigrades_html_purifier.cache_warmer.serializer.paths%'
+      - '@HTMLPurifier'
+    tags: [ kernel.cache_warmer ]
+
+  tardigrades_html_purifier.cache_warmer.serializer: '@Tardigrades\SectionField\Purifier\CacheWarmer\SerializerCacheWarmer'
+
+  Tardigrades\SectionField\Purifier\TypeExtension\HTMLPurifierTextTypeExtension:
+    public: false
+    arguments:
+      - '@Tardigrades\SectionField\Purifier\HTMLPurifiersRegistryInterface'
+    tags: { name: form.type_extension, extended_type: Symfony\Component\Form\Extension\Core\Type\TextType }
+
+  tardigrades_html_purifier.form.text_type_extension: '@Tardigrades\SectionField\Purifier\TypeExtension\HTMLPurifierTextTypeExtension'
+
+
