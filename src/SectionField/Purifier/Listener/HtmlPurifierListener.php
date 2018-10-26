@@ -2,28 +2,24 @@
 
 namespace Tardigrades\SectionField\Purifier\Listener;
 
-use Tardigrades\SectionField\Purifier\HTMLPurifiersRegistryInterface;
+use Psr\Container\ContainerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 
 class HTMLPurifierListener implements EventSubscriberInterface
 {
-    /**
-     * @var HTMLPurifiersRegistryInterface
-     */
+    /** @var ContainerInterface */
     private $registry;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $profile;
 
     /**
-     * @param HTMLPurifiersRegistryInterface $registry
-     * @param string                         $profile
+     * @param ContainerInterface $registry
+     * @param string $profile
      */
-    public function __construct(HTMLPurifiersRegistryInterface $registry, $profile)
+    public function __construct(ContainerInterface $registry, string $profile)
     {
         $this->registry = $registry;
         $this->profile = $profile;
@@ -34,13 +30,16 @@ class HTMLPurifierListener implements EventSubscriberInterface
      */
     public function purifySubmittedData(FormEvent $event): void
     {
+
         if (!is_scalar($data = $event->getData())) {
             // Hope there is a view transformer, otherwise an error might happen
             return; // because we don't want to handle it here
         }
+
         if (0 === strlen($submittedData = trim($data))) {
             return;
         }
+
         $event->setData($this->getPurifier()->purify($submittedData));
     }
 
@@ -57,8 +56,8 @@ class HTMLPurifierListener implements EventSubscriberInterface
     /**
      * @return \HTMLPurifier
      */
-    private function getPurifier(): HTMLPurifier
+    private function getPurifier(): \HTMLPurifier
     {
-        return $this->registry->get($this->profile);
+        return $this->registry->get('sexy_field_form.'.$this->profile);
     }
 }

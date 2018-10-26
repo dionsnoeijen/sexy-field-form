@@ -13,6 +13,7 @@ declare (strict_types=1);
 
 namespace Tardigrades\SectionField\Form;
 
+use Psr\Container\ContainerInterface;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Csrf\CsrfExtension;
@@ -31,8 +32,6 @@ use Tardigrades\Entity\SectionInterface;
 use Tardigrades\FieldType\FieldTypeInterface;
 use Tardigrades\SectionField\Form\FormInterface as SectionFormInterface;
 use Tardigrades\SectionField\Generator\CommonSectionInterface;
-use Tardigrades\SectionField\Purifier\HTMLPurifiersRegistry;
-use Tardigrades\SectionField\Purifier\HTMLPurifiersRegistryInterface;
 use Tardigrades\SectionField\Purifier\TypeExtension\HTMLPurifierTextTypeExtension;
 use Tardigrades\SectionField\Service\ReadSectionInterface;
 use Tardigrades\SectionField\Service\SectionManagerInterface;
@@ -51,7 +50,7 @@ class Form implements SectionFormInterface
     /** @var ReadSectionInterface */
     private $readSection;
 
-    /** @var HTMLPurifiersRegistryInterface */
+    /** @var ContainerInterface */
     private $purifiersRegistry;
 
     /** @var FormFactory */
@@ -60,7 +59,7 @@ class Form implements SectionFormInterface
     public function __construct(
         SectionManagerInterface $sectionManager,
         ReadSectionInterface $readSection,
-        HTMLPurifiersRegistryInterface $purifiersRegistry,
+        ContainerInterface $purifiersRegistry,
         FormFactory $formFactory = null
     ) {
         $this->sectionManager = $sectionManager;
@@ -138,8 +137,6 @@ class Form implements SectionFormInterface
                 ]
             );
 
-
-
         /** @var FieldInterface $field */
         foreach ($section->getFields() as $field) {
             $fieldTypeFullyQualifiedClassName = (string) $field
@@ -161,6 +158,14 @@ class Form implements SectionFormInterface
 
         $form->add('save', SubmitType::class);
         return $form->getForm();
+    }
+
+    /**
+     * @return \HTMLPurifier
+     */
+    private function getPurifier(): \HTMLPurifier
+    {
+        return $this->purifiersRegistry->get('sexy_field_form.default');
     }
 
     /**
