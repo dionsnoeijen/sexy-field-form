@@ -161,14 +161,6 @@ class Form implements SectionFormInterface
     }
 
     /**
-     * @return \HTMLPurifier
-     */
-    private function getPurifier(): \HTMLPurifier
-    {
-        return $this->purifiersRegistry->get('sexy_field_form.default');
-    }
-
-    /**
      * A section can be summoned by either it's handle: 'someCoolHandle'
      * or it's fully qualified class name: 'Vendor\Entity\SomeCoolEntity'
      * Make sure we fetch the entity config so we can get the FQCN from there
