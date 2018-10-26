@@ -2,7 +2,6 @@
 
 namespace Tardigrades\DependencyInjection\Compiler;
 
-use Tardigrades\SectionField\Purifier\HTMLPurifiersRegistryInterface;
 use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\Compiler\ServiceLocatorTagPass;
@@ -12,21 +11,13 @@ use Symfony\Component\DependencyInjection\Reference;
 
 class HTMLPurifierPass implements CompilerPassInterface
 {
-    const PURIFIER_TAG = 'tardigrades.form.html_purifier';
+    const PURIFIER_TAG = 'tardigrades.sexy_field_form.html_purifier';
 
     /**
      * {@inheritdoc}
      */
     public function process(ContainerBuilder $container)
     {
-        if (!$container->hasAlias(HTMLPurifiersRegistryInterface::class)) {
-            return;
-        }
-        try {
-            $registry = $container->findDefinition(HTMLPurifiersRegistryInterface::class);
-        } catch (ServiceNotFoundException $e) {
-            return;
-        }
         $purifiers = [];
         foreach ($container->findTaggedServiceIds(self::PURIFIER_TAG) as $id => $tags) {
 
@@ -43,8 +34,8 @@ class HTMLPurifierPass implements CompilerPassInterface
             $purifier = $container->getDefinition($id);
 
             if (empty($purifier->getArguments())) {
-                $configId = "exercise_html_purifier.config.$profile";
-                $config = $container->hasDefinition($configId) ? $configId : 'exercise_html_purifier.config.default';
+                $configId = "sexy_field_form.config.$profile";
+                $config = $container->hasDefinition($configId) ? $configId : 'sexy_field_form.config.default';
                 $purifier->addArgument(new Reference($config));
             }
 

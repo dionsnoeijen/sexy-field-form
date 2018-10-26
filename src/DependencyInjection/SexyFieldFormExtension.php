@@ -19,8 +19,6 @@ use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\DependencyInjection\Reference;
 use Tardigrades\DependencyInjection\Compiler\HTMLPurifierPass;
-use Tardigrades\SectionField\Purifier\HTMLPurifiersRegistry;
-use Tardigrades\SectionField\Purifier\HTMLPurifiersRegistryInterface;
 
 class SexyFieldFormExtension extends Extension
 {
@@ -65,22 +63,22 @@ class SexyFieldFormExtension extends Extension
 
         foreach ($configs as $name => $config) {
             $configId = "sexy_field_form.config.$name";
-            $configDefinition = $container->register($configId, HTMLPurifier_Config::class)
+            $configDefinition = $container->register($configId, \HTMLPurifier_Config::class)
                 ->setPublic(false)
             ;
             if ('default' === $name) {
                 $configDefinition
-                    ->setFactory([HTMLPurifier_Config::class, 'create'])
+                    ->setFactory([\HTMLPurifier_Config::class, 'create'])
                     ->addArgument($config)
                 ;
             } else {
                 $configDefinition
-                    ->setFactory([HTMLPurifier_Config::class, 'inherit'])
+                    ->setFactory([\HTMLPurifier_Config::class, 'inherit'])
                     ->addArgument(new Reference('sexy_field_form.config.default'))
                     ->addMethodCall('loadArray', [$config])
                 ;
             }
-            $container->register("sexy_field_form.$name", HTMLPurifier::class)
+            $container->register("sexy_field_form.$name", \HTMLPurifier::class)
                 ->addArgument(new Reference($configId))
                 ->addTag(HTMLPurifierPass::PURIFIER_TAG, ['profile' => $name])
             ;
@@ -89,13 +87,7 @@ class SexyFieldFormExtension extends Extension
             }
         }
 
-        $container->register('sexy_field_form.purifiers_registry', HTMLPurifiersRegistry::class)
-            ->setPublic(false);
-
-        $container->setAlias(HTMLPurifiersRegistryInterface::class, 'sexy_field_form.purifiers_registry')
-            ->setPublic(false);
-
-        $container->setAlias(HTMLPurifier::class, 'sexy_field_form.default')
+        $container->setAlias(\HTMLPurifier::class, 'sexy_field_form.default')
             ->setPublic(false);
 
         $container->setParameter('sexy_field_form.cache_warmer.serializer.paths', array_unique($serializerPaths));

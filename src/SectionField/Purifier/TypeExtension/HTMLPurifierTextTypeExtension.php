@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Tardigrades\SectionField\Purifier\TypeExtension;
 
+use Psr\Container\ContainerInterface;
 use Tardigrades\SectionField\Purifier\Listener\HTMLPurifierListener;
-use Tardigrades\SectionField\Purifier\HTMLPurifiersRegistryInterface;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -16,11 +16,11 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class HTMLPurifierTextTypeExtension extends AbstractTypeExtension
 {
     /**
-     * @var HTMLPurifiersRegistryInterface
+     * @var ContainerInterface
      */
     private $purifiersRegistry;
 
-    public function __construct(HTMLPurifiersRegistryInterface $registry)
+    public function __construct(ContainerInterface $registry)
     {
         $this->purifiersRegistry = $registry;
     }
@@ -49,7 +49,7 @@ class HTMLPurifierTextTypeExtension extends AbstractTypeExtension
                 if (!$options['purify_html']) {
                     return null;
                 }
-                if ($this->purifiersRegistry->has($profile)) {
+                if ($this->purifiersRegistry->has('sexy_field_form.'.$profile)) {
                     return $profile;
                 }
                 throw new InvalidOptionsException(sprintf('The profile "%s" is not registered.', $profile));
