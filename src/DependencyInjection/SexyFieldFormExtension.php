@@ -37,60 +37,10 @@ class SexyFieldFormExtension extends Extension
         );
 
         try {
-//            $loader->load('config.yml');
             $loader->load('service/services.yml');
         } catch (\Exception $exception) {
             throw $exception;
         }
-
-        /* Prepend the default configuration. This cannot be defined within the
-         * Configuration class, since the root node's children are array
-         * prototypes.
-         *
-         * This cache path may be suppressed by either unsetting the "default"
-         * configuration (relying on canBeUnset() on the prototype node) or
-         * setting the "Cache.SerializerPath" option to null.
-         */
-        array_unshift($configs, [
-            'default' => [
-                'Cache.SerializerPath' => '%kernel.cache_dir%/htmlpurifier',
-            ],
-        ]);
-
-        $configs = $this->processConfiguration(new Configuration(), $configs);
-
-        $serializerPaths = [];
-
-        foreach ($configs as $name => $config) {
-            $configId = "sexy_field_form.config.$name";
-            $configDefinition = $container->register($configId, \HTMLPurifier_Config::class)
-                ->setPublic(false)
-            ;
-            if ('default' === $name) {
-                $configDefinition
-                    ->setFactory([\HTMLPurifier_Config::class, 'create'])
-                    ->addArgument($config)
-                ;
-            } else {
-                $configDefinition
-                    ->setFactory([\HTMLPurifier_Config::class, 'inherit'])
-                    ->addArgument(new Reference('sexy_field_form.config.default'))
-                    ->addMethodCall('loadArray', [$config])
-                ;
-            }
-            $container->register("sexy_field_form.$name", \HTMLPurifier::class)
-                ->addArgument(new Reference($configId))
-                ->addTag(HTMLPurifierPass::PURIFIER_TAG, ['profile' => $name])
-            ;
-            if (isset($config['Cache.SerializerPath'])) {
-                $serializerPaths[] = $config['Cache.SerializerPath'];
-            }
-        }
-
-        $container->setAlias(\HTMLPurifier::class, 'sexy_field_form.default')
-            ->setPublic(false);
-
-        $container->setParameter('sexy_field_form.cache_warmer.serializer.paths', array_unique($serializerPaths));
     }
 
     /**
