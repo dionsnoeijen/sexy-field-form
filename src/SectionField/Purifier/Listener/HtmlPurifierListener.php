@@ -30,11 +30,10 @@ class HTMLPurifierListener implements EventSubscriberInterface
      */
     public function purifySubmittedData(FormEvent $event): void
     {
-
         if (!is_scalar($data = $event->getData())) {
-            // Hope there is a view transformer, otherwise an error might happen
-            return; // because we don't want to handle it here
+            return;
         }
+
 
         if (0 === strlen($submittedData = trim($data))) {
             return;
@@ -49,7 +48,7 @@ class HTMLPurifierListener implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            FormEvents::PRE_SUBMIT => ['purifySubmittedData', /* as soon as possible */ 1000000],
+            FormEvents::PRE_SUBMIT => ['purifySubmittedData', 1000000],
         ];
     }
 
@@ -58,6 +57,6 @@ class HTMLPurifierListener implements EventSubscriberInterface
      */
     private function getPurifier(): \HTMLPurifier
     {
-        return $this->registry->get('sexy_field_form.'.$this->profile);
+        return $this->registry->get('sexy_field.'.$this->profile);
     }
 }

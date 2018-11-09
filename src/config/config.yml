@@ -1,4 +1,0 @@
-
-sexy_field_form:
-  default:
-    Cache.SerializerPath: '%kernel.cache_dir%/htmlpurifier'
