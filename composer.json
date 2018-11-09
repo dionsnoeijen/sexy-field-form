@@ -30,7 +30,7 @@
   },
   "require-dev": {
     "tardigrades/sexy-field-field-types-base": "dev-master",
-    "tardigrades/sexy-field": "dev-master",
+    "tardigrades/sexy-field": "dev-integrate-purifier",
     "phpunit/phpunit": "^6.1",
     "squizlabs/PHP_CodeSniffer": "^2.8",
     "mockery/mockery": "^0.9.9",
