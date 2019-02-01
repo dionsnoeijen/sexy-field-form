@@ -49,7 +49,7 @@ class HTMLPurifierTextTypeExtension extends AbstractTypeExtension
                 if (!$options['purify_html']) {
                     return null;
                 }
-                if ($this->purifiersRegistry->has('sexy_field.'.$profile)) {
+                if ($this->purifiersRegistry->has('sexy_field.purifier.'.$profile)) {
                     return $profile;
                 }
                 throw new InvalidOptionsException(sprintf('The profile "%s" is not registered.', $profile));
