@@ -57,6 +57,6 @@ class HTMLPurifierListener implements EventSubscriberInterface
      */
     private function getPurifier(): \HTMLPurifier
     {
-        return $this->registry->get('sexy_field.purifier.'.$this->profile);
+        return $this->registry->get('sexy_field.'.$this->profile);
     }
 }
