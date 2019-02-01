@@ -3,7 +3,7 @@ services:
     arguments:
       - '@section_field.manager.doctrine.section_manager'
       - '@section_field.read.section'
-      - '@service_container' #created in the SexyFieldFormExtension
+      - '@service_container' #created in the SexyFieldExtension (Bundle)
 
   section_field.form: '@Tardigrades\SectionField\Form\Form'
 
