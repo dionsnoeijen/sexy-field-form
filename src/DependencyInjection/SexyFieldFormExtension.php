@@ -30,22 +30,14 @@ class SexyFieldFormExtension extends Extension
         $loader = new YamlFileLoader(
             $container,
             new FileLocator([
-                __DIR__.'/../config'
+                __DIR__.'/../config/service'
             ])
         );
 
         try {
-            $loader->load('service/services.yml');
+            $loader->load('services.yml');
         } catch (\Exception $exception) {
             throw $exception;
         }
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getAlias(): string
-    {
-        return 'sexy_field_form';
     }
 }

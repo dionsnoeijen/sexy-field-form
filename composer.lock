@@ -632,12 +632,12 @@
             "version": "v2.6.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/doctrine/doctrine2.git",
+                "url": "https://github.com/doctrine/orm.git",
                 "reference": "d2b4dd71d2a276edd65d0c170375b445f8a4a4a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/d2b4dd71d2a276edd65d0c170375b445f8a4a4a8",
+                "url": "https://api.github.com/repos/doctrine/orm/zipball/d2b4dd71d2a276edd65d0c170375b445f8a4a4a8",
                 "reference": "d2b4dd71d2a276edd65d0c170375b445f8a4a4a8",
                 "shasum": ""
             },
@@ -4705,12 +4705,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dionsnoeijen/sexy-field-field-types-base.git",
-                "reference": "68e88c519f70b578aabe4c1fc14efd82169564b0"
+                "reference": "00348dfa887d687377046e5728cfe924f058d419"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dionsnoeijen/sexy-field-field-types-base/zipball/68e88c519f70b578aabe4c1fc14efd82169564b0",
-                "reference": "68e88c519f70b578aabe4c1fc14efd82169564b0",
+                "url": "https://api.github.com/repos/dionsnoeijen/sexy-field-field-types-base/zipball/00348dfa887d687377046e5728cfe924f058d419",
+                "reference": "00348dfa887d687377046e5728cfe924f058d419",
                 "shasum": ""
             },
             "require": {
@@ -4743,7 +4743,7 @@
                 }
             ],
             "description": "Section field basic field types",
-            "time": "2018-11-02T11:43:12+00:00"
+            "time": "2018-11-16T11:55:55+00:00"
         },
         {
             "name": "theseer/tokenizer",
