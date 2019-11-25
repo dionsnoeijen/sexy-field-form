@@ -20,7 +20,12 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 class SexyFieldFormExtension extends Extension
 {
-    public function load(array $configs, ContainerBuilder $container)
+    /**
+     * @param array $configs
+     * @param ContainerBuilder $container
+     * @throws \Exception
+     */
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $loader = new YamlFileLoader(
             $container,
@@ -29,6 +34,10 @@ class SexyFieldFormExtension extends Extension
             ])
         );
 
-        $loader->load('services.yml');
+        try {
+            $loader->load('services.yml');
+        } catch (\Exception $exception) {
+            throw $exception;
+        }
     }
 }

@@ -6,6 +6,7 @@ namespace Tardigrades\SectionField\Form;
 use Doctrine\Common\Collections\ArrayCollection;
 use PHPUnit\Framework\TestCase;
 use Mockery as M;
+use Psr\Container\ContainerInterface;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormFactory;
@@ -37,6 +38,9 @@ class FormTest extends TestCase
     /** @var FormFactory|M\Mock */
     private $formFactory;
 
+    /** @var ContainerInterface|M\Mock */
+    private $container;
+
     /** @var ReadSectionInterface|M\Mock */
     private $readSection;
 
@@ -47,8 +51,14 @@ class FormTest extends TestCase
     {
         $this->sectionManager = M::mock(SectionManagerInterface::class);
         $this->formFactory = M::mock(FormFactory::class);
+        $this->container = M::mock(ContainerInterface::class);
         $this->readSection = M::mock(ReadSectionInterface::class);
-        $this->form = new Form($this->sectionManager, $this->readSection, $this->formFactory);
+        $this->form = new Form(
+            $this->sectionManager,
+            $this->readSection,
+            $this->container,
+            $this->formFactory
+        );
     }
 
     /**

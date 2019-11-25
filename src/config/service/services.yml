@@ -1,16 +1,18 @@
 services:
-
-  section_field.form:
-    class: Tardigrades\SectionField\Form\Form
+  Tardigrades\SectionField\Form\Form:
     arguments:
       - '@section_field.manager.doctrine.section_manager'
       - '@section_field.read.section'
+      - '@service_container' #created in the SexyFieldExtension (Bundle)
 
-  section_field.twig.section_form:
-      class: Tardigrades\Twig\SectionFormTwigExtension
+  section_field.form: '@Tardigrades\SectionField\Form\Form'
+
+  Tardigrades\Twig\SectionFormTwigExtension:
       arguments:
         - '@section_field.manager.doctrine.section_manager'
         - '@section_field.create.section'
         - '@section_field.form'
         - '@request_stack'
-      tags: [twig.extension]
+      tags: [ twig.extension ]
+
+  section_field.twig.section_form: '@Tardigrades\Twig\SectionFormTwigExtension'
