@@ -29,11 +29,11 @@
     }
   },
   "require-dev": {
-    "tardigrades/sexy-field-field-types-base": "dev-sym-4.x",
+    "tardigrades/sexy-field-field-types-base": "dev-sym-4-integrate-purifier",
     "tardigrades/sexy-field": "dev-sym-4.x",
     "phpunit/phpunit": "^6.1",
-    "squizlabs/PHP_CodeSniffer": "^2.8",
+    "squizlabs/php_codesniffer": "^2.8",
     "mockery/mockery": "^0.9.9",
-    "mikey179/vfsStream": "^1.6"
+    "mikey179/vfsstream": "^1.6"
   }
 }
