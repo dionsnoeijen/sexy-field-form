@@ -64,46 +64,46 @@ class SectionFormTwigExtensionTest extends TestCase
         $this->assertInstanceOf(\Twig_Function::class, $result[0]);
     }
 
-    /**
-     * @test
-     * @covers ::__construct
-     * @covers ::sectionForm
-     */
-    public function it_should_redirect_if_form_is_valid_and_submitted()
-    {
-        $handleString = 'sexyHandle';
-        $formOptionsArray = [
-            'id' => 1,
-            'slug' => 'snail',
-            'redirect' => '/myPlace/'
-        ];
-
-        $dummyData = Mockery::mock(CommonSectionInterface::class);
-
-        $mockedForm = Mockery::mock(Form::class)->makePartial();
-        $mockedCurrentRequest = Mockery::mock(Request::class)->makePartial();
-
-        $this->requestStack->shouldReceive('getCurrentRequest')->once()->andReturn($mockedCurrentRequest);
-
-        $this->form->shouldReceive('buildFormForSection')
-            ->once()
-            ->andReturn($mockedForm);
-
-        $mockedCurrentRequest->shouldReceive('get')->once()->with('form')
-            ->andReturn(['nothing to see here']);
-
-        $this->createSection->shouldReceive('save')->once()
-            ->with($dummyData);
-
-        $mockedForm->shouldReceive('handleRequest')->once();
-        $mockedForm->shouldReceive('isSubmitted')->once()->andReturn(true);
-        $mockedForm->shouldReceive('isValid')->once()->andReturn(true);
-        $mockedForm->shouldReceive('getData')->once()->andReturn($dummyData);
-
-        $formView = $this->twigExtension->sectionForm($handleString, $formOptionsArray);
-
-        $this->assertNull($formView);
-    }
+//    /**
+//     * @test
+//     * @covers ::__construct
+//     * @covers ::sectionForm
+//     */
+//    public function it_should_redirect_if_form_is_valid_and_submitted()
+//    {
+//        $handleString = 'sexyHandle';
+//        $formOptionsArray = [
+//            'id' => 1,
+//            'slug' => 'snail',
+//            'redirect' => '/myPlace/'
+//        ];
+//
+//        $dummyData = Mockery::mock(CommonSectionInterface::class);
+//
+//        $mockedForm = Mockery::mock(Form::class)->makePartial();
+//        $mockedCurrentRequest = Mockery::mock(Request::class)->makePartial();
+//
+//        $this->requestStack->shouldReceive('getCurrentRequest')->once()->andReturn($mockedCurrentRequest);
+//
+//        $this->form->shouldReceive('buildFormForSection')
+//            ->once()
+//            ->andReturn($mockedForm);
+//
+//        $mockedCurrentRequest->shouldReceive('get')->once()->with('form')
+//            ->andReturn(['nothing to see here']);
+//
+//        $this->createSection->shouldReceive('save')->once()
+//            ->with($dummyData);
+//
+//        $mockedForm->shouldReceive('handleRequest')->once();
+//        $mockedForm->shouldReceive('isSubmitted')->once()->andReturn(true);
+//        $mockedForm->shouldReceive('isValid')->once()->andReturn(true);
+//        $mockedForm->shouldReceive('getData')->once()->andReturn($dummyData);
+//
+//        $formView = $this->twigExtension->sectionForm($handleString, $formOptionsArray);
+//
+//        $this->assertNull($formView);
+//    }
 
     /**
      * @test
