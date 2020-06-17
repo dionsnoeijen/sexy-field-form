@@ -68,7 +68,6 @@ class SectionFormTwigExtensionTest extends TestCase
      * @test
      * @covers ::__construct
      * @covers ::sectionForm
-     * @runInSeparateProcess
      */
     public function it_should_redirect_if_form_is_valid_and_submitted()
     {
