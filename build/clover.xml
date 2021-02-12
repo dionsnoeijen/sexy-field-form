@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1613145101">
-  <project timestamp="1613145101">
+<coverage generated="1613153574">
+  <project timestamp="1613153574">
     <file name="/Users/Dion/www/sexy-field/sexy-field-form/src/DependencyInjection/SexyFieldFormExtension.php">
       <class name="Tardigrades\DependencyInjection\SexyFieldFormExtension" namespace="global">
         <metrics complexity="2" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="8" coveredstatements="6" elements="9" coveredelements="6"/>
