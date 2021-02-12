@@ -13,16 +13,16 @@ declare (strict_types=1);
 
 namespace Tardigrades\Twig;
 
+use Symfony\Bundle\TwigBundle\DependencyInjection\TwigExtension;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Tardigrades\SectionField\Form\FormInterface;
 use Tardigrades\SectionField\Service\CreateSectionInterface;
 use Tardigrades\SectionField\Service\SectionManagerInterface;
 use Tardigrades\SectionField\ValueObject\SectionFormOptions;
-use Twig_Extension;
-use Twig_Function;
+use Twig\TwigFunction;
 
-class SectionFormTwigExtension extends Twig_Extension
+class SectionFormTwigExtension extends TwigExtension
 {
     /** @var SectionManagerInterface */
     private $sectionManager;
@@ -51,9 +51,9 @@ class SectionFormTwigExtension extends Twig_Extension
     public function getFunctions(): array
     {
         return array(
-            new Twig_Function(
+            new TwigFunction(
                 'sectionForm',
-                array($this, 'sectionForm')
+                [ $this, 'sectionForm' ]
             )
         );
     }

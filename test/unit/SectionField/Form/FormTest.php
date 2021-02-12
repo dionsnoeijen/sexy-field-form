@@ -47,7 +47,7 @@ class FormTest extends TestCase
     /** @var Form */
     private $form;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->sectionManager = M::mock(SectionManagerInterface::class);
         $this->formFactory = M::mock(FormFactory::class);

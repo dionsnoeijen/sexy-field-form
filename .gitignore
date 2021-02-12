@@ -1,5 +1,7 @@
 vendor
 docker/data
-coverage
-log
+build/coverage-cache
 .notes
+.idea
+.phpunit.result.cache
+!/build/clover.xml

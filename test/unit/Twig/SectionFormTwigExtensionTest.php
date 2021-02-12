@@ -7,12 +7,11 @@ use Mockery;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Form\Form;
 use Symfony\Component\Form\FormView;
-use Symfony\Component\HttpFoundation\Request;
-use Tardigrades\SectionField\Generator\CommonSectionInterface;
 use Tardigrades\SectionField\Service\CreateSectionInterface;
 use Tardigrades\SectionField\Service\SectionManagerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Tardigrades\SectionField\Form\FormInterface;
+use Twig\TwigFunction;
 
 /**
  * @coversDefaultClass Tardigrades\Twig\SectionFormTwigExtension
@@ -37,7 +36,7 @@ class SectionFormTwigExtensionTest extends TestCase
     /** @var SectionFormTwigExtension */
     private $twigExtension;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->sectionManager = Mockery::mock(SectionManagerInterface::class);
         $this->createSection = Mockery::mock(CreateSectionInterface::class);
@@ -60,8 +59,8 @@ class SectionFormTwigExtensionTest extends TestCase
     public function it_should_construct_and_get_functions()
     {
         $result = $this->twigExtension->getFunctions();
-        $this->assertInternalType('array', $result);
-        $this->assertInstanceOf(\Twig_Function::class, $result[0]);
+        $this->assertIsArray($result);
+        $this->assertInstanceOf(TwigFunction::class, $result[0]);
     }
 
 //    /**
