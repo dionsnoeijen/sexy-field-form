@@ -20,9 +20,10 @@ use Tardigrades\SectionField\Service\CreateSectionInterface;
 use Tardigrades\SectionField\Service\SectionManagerInterface;
 use Tardigrades\SectionField\ValueObject\SectionFormOptions;
 use Twig\Extension\AbstractExtension;
+use Twig\Extension\ExtensionInterface;
 use Twig\TwigFunction;
 
-class SectionFormTwigExtension extends AbstractExtension
+class SectionFormTwigExtension extends AbstractExtension implements ExtensionInterface
 {
     /** @var SectionManagerInterface */
     private $sectionManager;
